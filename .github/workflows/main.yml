@@ -1,1 +1,24 @@
+name: Check Minimum Score
 
+on: [push]
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          make install
+
+      - name: Check code
+        run:
+          make lint
+
+      - name: Test model
+        run: |
+          make test
