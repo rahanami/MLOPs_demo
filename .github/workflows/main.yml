@@ -1,6 +1,7 @@
 name: Check Minimum Score
 
-on: [push]
+on: push
+
 jobs:
   evaluate:
     runs-on: ubuntu-latest
